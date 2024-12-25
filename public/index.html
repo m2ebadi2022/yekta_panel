@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./motaadmin/images/favicon.png"
+    />
+    <link
+      href="./motaadmin/vendor/jqvmap/css/jqvmap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./motaadmin/vendor/chartist/css/chartist.min.css"
+    />
+    <link
+      href="./motaadmin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="./motaadmin/css/style.css" rel="stylesheet" />
+    <!-- <link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,20 +45,92 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>پنل مشتریان</title>
   </head>
   <body>
+  
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+   
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+    
+    
+<div id="main-wrapper">  
+    <div class="nav-header">
+      <a href="/" class="brand-logo">
+          <img class="logo-abbr" style="width: 30px; height: 30px;" src="./motaadmin/images/logo-white.png" alt="" />
+          <!-- <img class="logo-abbr" style="width: 50px; height: 50px;" src="./motaadmin/images/3.png" alt="" /> -->
+          <img class="logo-compact" src="./motaadmin/images/logo-text-white.png" alt="" />
+          <img class="brand-title" style="width: 140px; height: 30px; padding-right: 25px;" src="./motaadmin/images/logo-text-white.png" alt="" />
+      </a>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <div class="nav-control ">
+          <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+          </div>
+      </div>
+  </div>
+  
+      <div id="root"></div>
+    </div>
+   
+    
+    <!-- Required vendors -->
+    <script src="./motaadmin/vendor/global/global.min.js"></script>
+    <script src="./motaadmin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="./motaadmin/vendor/chart.js/Chart.bundle.min.js"></script>
+     <script src="./motaadmin/js/custom.min.js"></script>
+   
+    <!-- Apex Chart -->
+    <!-- <script src="./motaadmin/vendor/apexchart/apexchart.js"></script> -->
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <!-- Vectormap -->
+    <!-- Chart piety plugin files -->
+    <!-- <script src="./motaadmin/vendor/peity/jquery.peity.min.js"></script> -->
+
+    <!-- Chartist -->
+    <!-- <script src="./motaadmin/vendor/chartist/js/chartist.min.js"></script> -->
+
+    <!-- Dashboard 1 -->
+    <!-- <script src="./motaadmin/js/dashboard/dashboard-1.js"></script> -->
+
+   
+    <!-- Svganimation scripts -->
+    <!-- <script src="./motaadmin/vendor/svganimation/vivus.min.js"></script> -->
+    <!-- <script src="./motaadmin/vendor/svganimation/svg.animation.js"></script> -->
+
+    <script>
+      
+      (function ($) {
+        "use strict";
+
+        var direction = getUrlParams("dir");
+        if (direction != "rtl") {
+          direction = "ltr";
+        }
+
+        new dezSettings({
+          typography: "roboto",
+          version: "light",
+          layout: "vertical",
+          headerBg: "color_1",
+          navheaderBg: "color_3",
+          sidebarBg: "color_1",
+          sidebarStyle: "full",
+          sidebarPosition: "fixed",
+          headerPosition: "fixed",
+          containerLayout: "wide",
+          direction: direction,
+        });
+      })(jQuery);
+    </script>
   </body>
 </html>
